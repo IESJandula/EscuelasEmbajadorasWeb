@@ -339,3 +339,23 @@ footer a{
     margin-top: 4vw;
   }
 }
+
+
+
+
+/* Clases CSS para la sección Quienes somos. La diferencia con .texto y .div-img respectivamente es 
+   la eliminación de height: 100vw. También se ha añadido un margin-bottom al div de la imagen */
+.texto-about {
+  width: 60vw;
+  
+  margin-left: 2vw;
+  margin-right: 2vw;
+  margin-top: 1.2vw;
+  font-size: auto;
+  display: flexbox;
+}
+
+.div-img-about {
+  width: 50vw;
+  margin-bottom: 2vw;
+}
