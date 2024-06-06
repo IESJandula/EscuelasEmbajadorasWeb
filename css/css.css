@@ -3,7 +3,7 @@
   src:local(OpenSans-VariableFont_wdth),
   url(res/Open_Sans/OpenSans-VariableFont_wdth\,wght.ttf);
 }
-*{
+* {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -12,14 +12,16 @@
     font-family: 'Open Sans';
     text-decoration: none !important;
   }
-  a{
+
+a {
     text-decoration: none !important;
   } 
-  header img {
+
+header img {
     float: left;
     width: 29%;
-    
   }
+  
 /* Centra la barra y la vuelve azul*/
 .navegador {
     background-color: rgb(4, 4, 133);
@@ -293,6 +295,15 @@ footer a{
     box-shadow: 0 0 3px -1px;
   }
   
+  .div-body-about {
+    width: 100vw;
+    height: auto;
+    background-color: rgb(239, 240, 240);
+    box-shadow: 0 0 3px -1px;
+    text-align: justify;
+    margin-top: 12%;
+  }
+
   .parrafo{
     margin-top: 0.5vw;
   }
@@ -343,10 +354,10 @@ footer a{
 
 
 
-/* Clases CSS para la sección Quienes somos. La diferencia con .texto y .div-img respectivamente es 
-   la eliminación de height: 100vw. También se ha añadido un margin-bottom al div de la imagen */
+/* Clases CSS para la sección Quiénes somos. La diferencia con .texto y .div-img respectivamente es 
+   la eliminación de height: 100vw */
 .texto-about {
-  width: 60vw;
+  
   
   margin-left: 2vw;
   margin-right: 2vw;
@@ -357,5 +368,12 @@ footer a{
 
 .div-img-about {
   width: 50vw;
-  margin-bottom: 2vw;
+}
+
+.div-body-about {
+  width: 100vw;
+  height: auto;
+  background-color: rgb(239, 240, 240);
+  box-shadow: 0 0 3px -1px;
+  text-align: justify;
 }
