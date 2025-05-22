@@ -1,0 +1,42 @@
+---
+// Componente sencillo para incrustar el feed de Instagram
+---
+
+<div class="instagram-container">
+  <h2 class="text-2xl font-bold text-blue-900 mb-4">Actividades 2024/2025</h2>
+  <p class="text-gray-600 mb-6">
+    Sigue nuestras últimas actividades en Instagram 
+    <a href="https://www.instagram.com/ambassadorsjandula" class="text-blue-600 hover:underline font-medium" target="_blank">
+      @ambassadorsjandula
+    </a>
+  </p>
+  
+  <!-- Widget de Instagram -->
+  <div class="instagram-embed">
+    <blockquote 
+      class="instagram-media" 
+      data-instgrm-permalink="https://www.instagram.com/ambassadorsjandula/"
+      data-instgrm-version="14"
+      style="margin: 0 auto; max-width: 100%; min-width: 326px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+    </blockquote>
+  </div>
+
+  <!-- Script de Instagram -->
+  <script async defer src="//www.instagram.com/embed.js"></script>
+</div>
+
+<style>
+  .instagram-container {
+    margin: 2rem auto;
+    max-width: 650px;
+    text-align: center;
+  }
+  
+  .instagram-embed {
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    background: #fafafa;
+    margin: 0 auto;
+  }
+</style>

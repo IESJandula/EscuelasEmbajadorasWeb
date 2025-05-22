@@ -1,0 +1,100 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ActivityCard from '../components/ActivityCard.astro';
+import Pagination from '../components/Pagination.astro';
+
+// En un proyecto real, estos datos vendrían de una base de datos o CMS
+const noticias = [
+  {
+    id: 1,
+    title: 'ELECCIONES AL PARLAMENTO EUROPEO 2024',
+    date: '2024-05-15',
+    content: 'El próximo 9 de junio se celebrarán las elecciones al Parlamento Europeo. Desde nuestro centro, como Escuela Embajadora, estamos realizando diversas actividades de concienciación sobre la importancia de la participación en estos comicios. ¡Tu voto es tu voz en Europa!',
+    image: '/img/Logo_parlamento_europeo.jpg',
+    category: 'Eventos'
+  },
+  {
+    id: 2,
+    title: 'CELEBRACIÓN DEL DÍA DE EUROPA',
+    date: '2024-05-09',
+    content: 'Hoy celebramos el Día de Europa con diversas actividades en nuestro centro. Hemos organizado charlas, exposiciones y juegos relacionados con la Unión Europea para conmemorar esta fecha tan importante. Los alumnos han participado activamente y han demostrado su interés por conocer más sobre la UE.',
+    image: '/img/IES-JANDULA.png',
+    category: 'Celebraciones'
+  },
+  {
+    id: 3,
+    title: 'VISITA DE REPRESENTANTES DEL PARLAMENTO EUROPEO',
+    date: '2024-04-20',
+    content: 'Hemos recibido la visita de representantes del Parlamento Europeo que han valorado muy positivamente el trabajo realizado por nuestro centro como Escuela Embajadora. Durante la visita, nuestros embajadores junior han presentado las actividades realizadas y los proyectos futuros.',
+    image: '/img/Logo_parlamento_europeo.jpg',
+    category: 'Visitas'
+  }
+];
+
+// Paginación - 3 noticias por página
+const noticiasPerPage = 3;
+const totalPages = Math.ceil(noticias.length / noticiasPerPage);
+const currentPage = 1;
+const currentNoticias = noticias.slice(0, noticiasPerPage);
+
+// Obtener categorías únicas para el filtro
+const categories = [...new Set(noticias.map(noticia => noticia.category))];
+---
+
+<Layout title="Noticias">
+  <Header />
+  
+  <!-- Banner de la sección de noticias -->
+  <div class="bg-blue-900 text-white py-12 md:py-16">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-3xl md:text-4xl font-bold mb-4">Noticias y Actualidad</h1>
+      <p class="text-lg text-yellow-300 max-w-3xl mx-auto">Mantente informado sobre las últimas actividades y eventos relacionados con el programa Escuelas Embajadoras</p>
+    </div>
+  </div>
+  
+  <main class="container mx-auto px-4 py-8 md:py-12">
+    
+    <!-- Lista de noticias -->
+    <div class="max-w-5xl mx-auto">
+      {currentNoticias.map(noticia => (
+        <ActivityCard 
+          title={noticia.title}
+          date={noticia.date}
+          content={noticia.content}
+          image={noticia.image}
+        />
+      ))}
+      
+      <!-- Paginación -->
+      <div class="mt-12">
+        <Pagination currentPage={currentPage} totalPages={totalPages} basePath="/noticias" />
+      </div>
+    </div>
+    
+    <!-- Espacio adicional al final -->
+    <div class="mt-16"></div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<style>
+  /* Efecto de transición para los filtros */
+  button {
+    transition: all 0.3s ease;
+  }
+  
+  /* Animación para la aparición de las noticias */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  article {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+</style>
+
+<!-- No se necesita JavaScript para filtrado -->
