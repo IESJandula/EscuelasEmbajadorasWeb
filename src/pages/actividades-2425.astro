@@ -1,0 +1,26 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Escuelas Embajadoras - Actividades 2024/2025">
+  <Header />
+  
+  <main class="container mx-auto px-4 py-8 text-center">
+    <h1 class="text-3xl font-bold text-blue-900 mb-4">Redireccionando...</h1>
+    <p class="text-gray-600 mb-6">Por favor, espere mientras le redirigimos a la página de actividades del curso 2024/2025.</p>
+    <div class="flex justify-center">
+      <a href="/actividades-2425/1" class="px-4 py-2 bg-blue-900 text-white rounded-md hover:bg-blue-800 transition-colors">
+        Click aquí si no es redirigido automáticamente
+      </a>
+    </div>
+  </main>
+  
+  <Footer />
+</Layout>
+
+<script>
+  // Redireccionar automáticamente a la página 1
+  window.location.href = '/actividades-2425/1';
+</script>

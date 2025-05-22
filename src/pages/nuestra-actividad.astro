@@ -1,0 +1,8 @@
+---
+// Redirección a la primera página de la paginación dinámica
+export const prerender = false;
+
+const redirectUrl = '/nuestra-actividad/1';
+---
+
+<meta http-equiv="refresh" content={`0;url=${redirectUrl}`} />

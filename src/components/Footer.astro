@@ -1,0 +1,67 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="bg-white border-t border-gray-200 mt-auto">
+  <!-- Franja con colores de la UE -->
+  <div class="h-1 bg-gradient-to-r from-blue-900 via-yellow-400 to-blue-900"></div>
+  
+  <div class="container mx-auto px-4 py-6">
+    <!-- Sección principal del footer -->
+    <div class="flex flex-col md:flex-row justify-between items-center mb-4">
+      <!-- Logo y descripción -->
+      <div class="mb-4 md:mb-0 md:w-1/3 text-center md:text-left">
+        <div class="flex items-center justify-center md:justify-start">
+          <img src="/img/IES-JANDULA.png" alt="Logo IES Jándula" class="h-8 mr-3">
+          <img src="/img/Logo_parlamento_europeo.jpg" alt="Logo Parlamento Europeo" class="h-8 rounded-md">
+        </div>
+        <p class="text-gray-600 text-sm mt-2 max-w-md mx-auto md:mx-0">
+          IES Jándula participa en el programa Escuelas Embajadoras del Parlamento Europeo, promoviendo los valores europeos entre nuestros estudiantes.
+        </p>
+      </div>
+      
+      <!-- Enlaces rápidos -->
+      <div class="mb-4 md:mb-0 md:w-1/3 text-center">
+        <h3 class="text-blue-900 font-bold mb-2 text-base">Enlaces rápidos</h3>
+        <div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+          <a href="/" class="text-gray-600 hover:text-blue-900 transition-colors">Quiénes somos</a>
+          <a href="/noticias" class="text-gray-600 hover:text-blue-900 transition-colors">Noticias</a>
+          <a href="/nuestra-actividad" class="text-gray-600 hover:text-blue-900 transition-colors">Nuestra actividad</a>
+        </div>
+      </div>
+      
+      <!-- Redes sociales y contacto -->
+      <div class="md:w-1/3 text-center md:text-right">
+        <h3 class="text-blue-900 font-bold mb-2 text-base">Contacto</h3>
+        <div class="flex justify-center md:justify-end space-x-2 mb-2">
+          <a href="https://www.instagram.com/" target="_blank" class="bg-gray-100 text-blue-900 p-2 rounded-md hover:bg-blue-900 hover:text-white transition-all" aria-label="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a href="https://www.facebook.com/" target="_blank" class="bg-gray-100 text-blue-900 p-2 rounded-md hover:bg-blue-900 hover:text-white transition-all" aria-label="Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
+          <a href="https://www.youtube.com/" target="_blank" class="bg-gray-100 text-blue-900 p-2 rounded-md hover:bg-blue-900 hover:text-white transition-all" aria-label="YouTube">
+            <i class="bi bi-youtube"></i>
+          </a>
+        </div>
+        <p class="text-gray-600 text-sm">
+          <a href="mailto:info@iesjandula.es" class="hover:text-blue-900 transition-colors">info@iesjandula.es</a>
+        </p>
+      </div>
+    </div>
+    
+    <!-- Línea divisoria -->
+    <div class="border-t border-gray-200 pt-4 flex flex-col md:flex-row justify-between items-center">
+      <p class="text-gray-500 text-sm mb-2 md:mb-0">&copy; {currentYear} IES Jándula - Escuelas Embajadoras</p>
+      
+      <!-- Enlaces adicionales -->
+      <div class="flex flex-wrap justify-center gap-x-4 text-sm text-gray-500">
+        <a href="#" class="hover:text-blue-900 transition-colors">Política de privacidad</a>
+        <span class="hidden md:inline">|</span>
+        <a href="https://european-union.europa.eu/index_es" target="_blank" class="hover:text-blue-900 transition-colors">Unión Europea</a>
+        <span class="hidden md:inline">|</span>
+        <a href="https://www.europarl.europa.eu/portal/es" target="_blank" class="hover:text-blue-900 transition-colors">Parlamento Europeo</a>
+      </div>
+    </div>
+  </div>
+</footer>

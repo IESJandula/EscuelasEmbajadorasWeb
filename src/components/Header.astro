@@ -1,0 +1,155 @@
+---
+const pathname = new URL(Astro.request.url).pathname;
+const isActive = (path: string) => pathname === path;
+---
+
+<header class="w-full sticky top-0 z-50">
+  <!-- Franja superior con colores de la UE -->
+  <div class="h-1 bg-gradient-to-r from-blue-900 via-yellow-400 to-blue-900"></div>
+  
+  <!-- Barra de navegación principal -->
+  <nav class="bg-white shadow-md">
+    <div class="container mx-auto">
+      <!-- Logo y nombre para todos los dispositivos -->
+      <div class="flex justify-between items-center px-4 py-3">
+        <a href="/" class="flex items-center group">
+          <div class="mr-3 overflow-hidden rounded-md border-2 border-blue-900 transition-all duration-300 group-hover:shadow-md">
+            <img src="/img/Logo_parlamento_europeo.jpg" alt="Logo Parlamento Europeo" class="h-10 w-auto object-contain">
+          </div>
+          <div>
+            <h1 class="font-bold text-blue-900 text-lg leading-tight">Escuelas Embajadoras</h1>
+            <p class="text-xs text-gray-600">IES Jándula</p>
+          </div>
+        </a>
+        
+        <!-- Botón menú móvil -->
+        <button id="mobile-menu-button" class="md:hidden bg-blue-900 text-white p-1.5 rounded-md hover:bg-blue-800 transition-colors" aria-label="Abrir menú">
+          <i class="material-icons text-xl">menu</i>
+        </button>
+      </div>
+      
+      <!-- Menú de navegación para pantallas medianas y grandes -->
+      <div class="hidden md:block border-t border-gray-200">
+        <ul class="flex justify-center space-x-1 px-2">
+          <li>
+            <a href="/" class={`inline-block py-3 px-4 font-medium transition-all relative ${isActive('/') ? 'text-blue-900 font-semibold' : 'text-gray-700 hover:text-blue-900'}`}>
+              <span>Quiénes somos</span>
+              {isActive('/') && <span class="absolute bottom-0 left-0 w-full h-1 bg-yellow-400"></span>}
+            </a>
+          </li>
+          <li>
+            <a href="/noticias" class={`inline-block py-3 px-4 font-medium transition-all relative ${isActive('/noticias') ? 'text-blue-900 font-semibold' : 'text-gray-700 hover:text-blue-900'}`}>
+              <span>Noticias</span>
+              {isActive('/noticias') && <span class="absolute bottom-0 left-0 w-full h-1 bg-yellow-400"></span>}
+            </a>
+          </li>
+          <li class="group relative">
+            <a href="#" class={`inline-block py-3 px-4 font-medium transition-all relative ${isActive('/nuestra-actividad') || isActive('/actividades-2425') ? 'text-blue-900 font-semibold' : 'text-gray-700 hover:text-blue-900'}`}>
+              <span class="flex items-center">Nuestra actividad <i class="material-icons text-sm ml-1">expand_more</i></span>
+              {(isActive('/nuestra-actividad') || isActive('/actividades-2425')) && <span class="absolute bottom-0 left-0 w-full h-1 bg-yellow-400"></span>}
+            </a>
+            <!-- Menú desplegable -->
+            <div class="absolute left-0 top-full w-36 bg-white shadow-lg rounded-md overflow-hidden hidden group-hover:block z-50">
+              <a href="/nuestra-actividad/1" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 transition-colors">
+                2023/2024
+              </a>
+              <a href="/actividades-2425" class="block px-4 py-2 text-gray-700 hover:bg-blue-50 transition-colors">
+                2024/2025
+              </a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Menú móvil desplegable con diseño mejorado -->
+    <div id="mobile-menu" class="hidden md:hidden bg-gradient-to-b from-blue-50 to-white border-t border-gray-200 shadow-inner">
+      <div class="p-4">
+        <div class="flex items-center mb-4 border-b border-gray-200 pb-2">
+          <img src="/img/IES-JANDULA.png" alt="Logo IES Jándula" class="h-8 mr-2">
+          <span class="text-sm text-gray-600">Escuelas Embajadoras</span>
+        </div>
+        
+        <ul class="space-y-1">
+          <li>
+            <a href="/" class={`block rounded-lg transition-all duration-200 ${isActive('/') ? 'bg-blue-900 text-white' : 'text-gray-700 hover:bg-blue-100'}`}>
+              <div class="flex items-center p-3">
+                <div class={`rounded-full p-1.5 mr-3 ${isActive('/') ? 'bg-blue-800 text-white' : 'bg-blue-100 text-blue-900'}`}>
+                  <i class="material-icons text-sm">home</i>
+                </div>
+                <span class="font-medium">Quiénes somos</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="/noticias" class={`block rounded-lg transition-all duration-200 ${isActive('/noticias') ? 'bg-blue-900 text-white' : 'text-gray-700 hover:bg-blue-100'}`}>
+              <div class="flex items-center p-3">
+                <div class={`rounded-full p-1.5 mr-3 ${isActive('/noticias') ? 'bg-blue-800 text-white' : 'bg-blue-100 text-blue-900'}`}>
+                  <i class="material-icons text-sm">article</i>
+                </div>
+                <span class="font-medium">Noticias</span>
+              </div>
+            </a>
+          </li>
+          <!-- Menú desplegable de actividades para móvil -->
+          <li class="mb-2">
+            <div class="block rounded-lg transition-all duration-200 bg-blue-50">
+              <div class="flex items-center p-3">
+                <div class="rounded-full p-1.5 mr-3 bg-blue-100 text-blue-900">
+                  <i class="material-icons text-sm">groups</i>
+                </div>
+                <span class="font-medium">Nuestra actividad</span>
+              </div>
+            </div>
+            <div class="pl-12 mt-1 space-y-1">
+              <a href="/nuestra-actividad/1" class={`block rounded-lg py-2 px-3 transition-all duration-200 ${isActive('/nuestra-actividad') ? 'bg-blue-900 text-white' : 'text-gray-700 hover:bg-blue-100'}`}>
+                2023/2024
+              </a>
+              <a href="/actividades-2425" class={`block rounded-lg py-2 px-3 transition-all duration-200 ${isActive('/actividades-2425') ? 'bg-blue-900 text-white' : 'text-gray-700 hover:bg-blue-100'}`}>
+                2024/2025
+              </a>
+            </div>
+          </li>
+        </ul>
+        
+        <div class="mt-6 pt-4 border-t border-gray-200">
+          <a href="#" class="flex items-center justify-center text-sm text-blue-900 hover:text-blue-700">
+            <i class="material-icons text-sm mr-1">language</i>
+            <span>Sitio oficial del Parlamento Europeo</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<script>
+  // Script para el menú móvil
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenuButton = document.getElementById('mobile-menu-button');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = mobileMenuButton?.querySelector('.material-icons');
+
+    mobileMenuButton?.addEventListener('click', () => {
+      mobileMenu?.classList.toggle('hidden');
+      
+      // Cambiar el icono cuando el menú está abierto/cerrado
+      if (menuIcon) {
+        menuIcon.textContent = mobileMenu?.classList.contains('hidden') ? 'menu' : 'close';
+      }
+    });
+
+    // Cerrar el menú al hacer clic en un enlace
+    const mobileLinks = mobileMenu?.querySelectorAll('a');
+    mobileLinks?.forEach(link => {
+      link.addEventListener('click', () => {
+        if (mobileMenu) {
+          mobileMenu.classList.add('hidden');
+          if (menuIcon) {
+            menuIcon.textContent = 'menu';
+          }
+        }
+      });
+    });
+  });
+</script>
